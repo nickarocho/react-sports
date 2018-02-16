@@ -49,7 +49,7 @@ const FullRoster = () => (
 
 const Player = (props) => {
     const player = PlayerAPI.get(
-        parseInt(props.match.params.number, 10)
+        parseInt(props.match.params.number)
     )
     if (!player) {
         return <div>Sorry, but the player was not found</div>
@@ -68,7 +68,10 @@ const Home = () => (
 )
 
 const Roster = () => (
-    <div>Roster Component</div>
+    <Switch>
+        <Route exact path='/roster' component={FullRoster}/>
+        <Route path='/roster/:number' component={Player}/>
+    </Switch>
 )
 
 const Main = () => (
