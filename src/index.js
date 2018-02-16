@@ -7,16 +7,6 @@ import {
     Route
 } from 'react-router-dom';
 
-const Main = () => (
-    <main>
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/roster" component={Roster} />
-            <Route path="/schedule" compononet={Schedule} />
-        </Switch>
-    </main>
-)
-
 const PlayerAPI = {
     players: [
         { number: 1, name: "Ben Blocker", position: "G" },
@@ -33,13 +23,41 @@ const PlayerAPI = {
     }
 }
 
+const Schedule = () => (
+    <div>
+        <ul>
+            <li>6/5 @ Evergreens</li>
+            <li>6/8 vs Kickers</li>
+            <li>6/14 @ United</li>
+        </ul>
+    </div>
+)
+
+const Home = () => (
+    <div>Home Component</div>
+)
+
+const Roster = () => (
+    <div>Roster Component</div>
+)
+
+const Main = () => (
+    <main>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/roster" component={Roster} />
+            <Route path="/schedule" component={Schedule} />
+        </Switch>
+    </main>
+)
+
 const Header = () => (
     <header>
         <nav>
             <ul>
-                <li><Link to='/'></Link></li>
-                <li><Link to='/roster'></Link></li>
-                <li><Link to='/schedule'></Link></li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/roster'>Roster</Link></li>
+                <li><Link to='/schedule'>Schedule</Link></li>
             </ul>
         </nav>
     </header>
